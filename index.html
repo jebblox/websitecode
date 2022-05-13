@@ -53,6 +53,9 @@
               onclick="window.open('https://www.youtube.com/channel/UCIY09V1rjNqXSKBZe3FKCmQ')">Youtube</a>
           </li>
         </ul>
+        <li class="d-flex">
+          <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
+        </li>
       </div>
     </div>
   </nav>
@@ -60,12 +63,6 @@
   <center>
     <h3>
       Free Roblox Scripts
-    </h3>
-  </center>
-
-  <center>
-    <h3>
-      Cant find the script? Use CTRL + F and search the game name!
     </h3>
   </center>
 
@@ -332,6 +329,22 @@
       vertical-align: top;
     }
   </style>
+
+  <script>
+    document.getElementById("search").addEventListener("input", function(input){
+      var search = input.target.value.toLowerCase();
+      var cards = document.getElementsByClassName("card");
+      for(var i = 0; i < cards.length; i++){
+        var card = cards[i];
+        var title = card.getElementsByClassName("card-title")[0].innerText.toLowerCase();
+        if(title.indexOf(search) > -1){
+          card.style.display = "inline-block";
+        } else {
+          card.style.display = "none";
+        }
+      }
+    });
+  </script>
 
 </body>
 
